@@ -3,8 +3,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Generated dashboard output
-al_behar_dashboard_final.html
 
 # Tracker update archives
 tracker_updates_applied_*.csv
