@@ -691,7 +691,11 @@
         }
 
         #salesPerClientTable th,
-        #salesPerClientTable td {
+        #salesPerClientTable td,
+        #salesPerCategoryTable th,
+        #salesPerCategoryTable td,
+        #salesPerCountryTable th,
+        #salesPerCountryTable td {
             text-align: center !important;
             vertical-align: middle !important;
             padding: 8px 6px;
@@ -938,6 +942,45 @@
 
         .gm-block {
             background: #ecfdf5;
+        }
+
+        .table-legend {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 13px;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #334155;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .legend-dot.sales {
+            background: #2563eb;
+            border: 1px solid #1d4ed8;
+        }
+
+        .legend-dot.gp {
+            background: #059669;
+            border: 1px solid #047857;
         }
 
         .vs-block {
@@ -1742,6 +1785,10 @@
                     Sales & Gross Profit per Client
                     <button class="analysis-trigger" onclick="openTableAnalysis('client')" title="Show analysis"><i class="bi bi-info-lg"></i></button>
                 </h3>
+                <div class="table-legend">
+                    <span class="legend-item"><span class="legend-dot sales"></span> Sales columns</span>
+                    <span class="legend-item"><span class="legend-dot gp"></span> Gross Profit columns</span>
+                </div>
                 <div class="table-responsive">
                     <table class="comparison-table" id="salesPerClientTable">
                         <thead>
@@ -1806,6 +1853,10 @@
                     Sales & Gross Profit per Category
                     <button class="analysis-trigger" onclick="openTableAnalysis('category')" title="Show analysis"><i class="bi bi-info-lg"></i></button>
                 </h3>
+                <div class="table-legend">
+                    <span class="legend-item"><span class="legend-dot sales"></span> Sales columns</span>
+                    <span class="legend-item"><span class="legend-dot gp"></span> Gross Profit columns</span>
+                </div>
                 <div class="table-responsive">
                     <table class="comparison-table" id="salesPerCategoryTable">
                         <thead>
@@ -1957,21 +2008,25 @@
                     Sales & Gross Profit per Country
                     <button class="analysis-trigger" onclick="openTableAnalysis('country')" title="Show analysis"><i class="bi bi-info-lg"></i></button>
                 </h3>
+                <div class="table-legend">
+                    <span class="legend-item"><span class="legend-dot sales"></span> Sales columns</span>
+                    <span class="legend-item"><span class="legend-dot gp"></span> Gross Profit columns</span>
+                </div>
                 <div class="table-responsive">
                     <table class="comparison-table" id="salesPerCountryTable">
                         <thead>
                             <tr>
                                 <th>Country</th>
-                                <th class="prev-sales-label">Prev Sales</th>
-                                <th class="prev-gm-label">Prev GM</th>
-                                <th class="actual-sales-label">Actual Sales</th>
-                                <th class="actual-gm-label">Actual GM</th>
-                                <th class="forecast-sales-label">Forecast Sales</th>
-                                <th class="forecast-gm-label">Forecast GM</th>
-                                <th>GM%</th>
+                                <th class="prev-sales-label sales-block">Prev Sales</th>
+                                <th class="prev-gm-label gm-block">Prev GM</th>
+                                <th class="actual-sales-label sales-block">Actual Sales</th>
+                                <th class="actual-gm-label gm-block">Actual GM</th>
+                                <th class="forecast-sales-label sales-block">Forecast Sales</th>
+                                <th class="forecast-gm-label gm-block">Forecast GM</th>
+                                <th class="gm-block">GM%</th>
                                 <th>Contribution %</th>
-                                <th>Target Sales</th>
-                                <th>Target GM</th>
+                                <th class="sales-block">Target Sales</th>
+                                <th class="gm-block">Target GM</th>
                             </tr>
                         </thead>
                         <tbody id="salesPerCountryBody">
